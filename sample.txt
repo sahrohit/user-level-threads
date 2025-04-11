@@ -1,0 +1,5 @@
+A. AMD,B. Boring ,C. ChatGPT,D. Deep Mind,
+C. Elon Musk,F. Jamie Dimon,G. Jenson Huang,H. Lisa Su
+I. IBM,J. Nvidia ,K. OpenAI ,L. Sam Altman,
+M. Satya Nadella,N. SpaceX,O. Sundai Pichai,P. Tesla ,
+P. Tim Cook,Q. Jeff Bezos,R. X,S. none of the above

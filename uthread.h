@@ -6,7 +6,7 @@
 // Constants
 #define MAX_TASKS 10
 #define STACK_SIZE 16384
-#define TIME_SLICE_USEC 50000 // 50ms
+#define TIME_SLICE_USEC 50000 // 500ms
 
 // Implemented Schedulers
 typedef enum
@@ -25,7 +25,7 @@ typedef struct
     int task_terminated; // Boolean flag instead of enum state
 } task_t;
 
-/* Scheduler structure - forward declaration */
+// Scheduler structure - forward declaration
 typedef struct scheduler_s scheduler_t;
 
 // Scheduler Structure Definition

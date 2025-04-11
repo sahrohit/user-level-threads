@@ -68,12 +68,6 @@ static unsigned lottery_select(scheduler_t *sched)
         }
     }
 
-    // if (total_tickets == 0)
-    // {
-    //     // No tickets left, fall back to round-robin but just to find next available task
-    //     return round_robin_select(sched);
-    // }
-
     // Draw a winning ticket
     unsigned winning_ticket = rand() % total_tickets;
     unsigned ticket_counter = 0;
@@ -96,7 +90,6 @@ static unsigned lottery_select(scheduler_t *sched)
                     sched->tasks[i]->task_terminated = 1;
                     sched->active_tasks--;
                 }
-
                 return i;
             }
         }
@@ -106,7 +99,7 @@ static unsigned lottery_select(scheduler_t *sched)
 /* Signal handler for task switching */
 static void scheduler_tick(int signum)
 {
-    printf("SWITCHING CONTEXT\n");
+    // printf("SWITCHING CONTEXT\n");
 
     // Check if all tasks have terminated
     if (scheduler.active_tasks == 0)

@@ -1,19 +1,17 @@
-CXX = gcc
-CXXFLAGS = -Wall
-TARGETS = timer.out context.out main.out
+CC = gcc
+CFLAGS = -Wall
+TARGET = main
+SRCS = main.c uthread.c
 
-.PHONY: all clean
+.PHONY: all clean run
 
-all: $(TARGETS)
+all: $(TARGET)
 
-main: main.c
-	$(CXX) $(CXXFLAGS) -o $@ $<
+$(TARGET): $(SRCS)
+	$(CC) $(CFLAGS) -o $@ $^
 
-timer: timer.c
-	$(CXX) $(CXXFLAGS) -o $@ $<
-
-context: context.c
-	$(CXX) $(CXXFLAGS) -o $@ $<
+run: $(TARGET)
+	./$(TARGET)
 
 clean:
-	rm -f $(TARGETS)
+	rm -f $(TARGET)

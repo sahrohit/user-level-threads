@@ -1,48 +1,51 @@
 #include "uthread.h"
 #include <stdio.h>
 
-/* Task functions */
+// Task functions
 static void func1(void)
 {
-    printf("func1: started\n");
+    printf("FUNC 1: STARTED\n");
     while (1)
     {
-        printf("func1: tick: %d\n", ++func1_count);
+        func1_count++;
+        // printf("func1: tick: %d\n", ++func1_count);
     }
 }
 
 static void func2(void)
 {
-    printf("func2: started\n");
+    printf("FUNC 2: STARTED\n");
     while (1)
     {
-        printf("func2: tick: %d\n", ++func2_count);
+        func2_count++;
+        // printf("func2: tick: %d\n", ++func2_count);
     }
 }
 
 static void func3(void)
 {
-    printf("func3: started\n");
+    printf("FUNC 3: STARTED\n");
     while (1)
     {
-        printf("func3: tick: %d\n", ++func3_count);
+        func3_count++;
+        // printf("func3: tick: %d\n", func3_count);
     }
 }
 
 static void func4(void)
 {
-    printf("func4: started\n");
+    printf("FUNC 4: STARTED\n");
     while (1)
     {
-        printf("func4: tick: %d\n", ++func4_count);
+        func4_count++;
+        // printf("func4: tick: %d\n", func4_count);
     }
 }
 
-/* Main function */
 int main()
 {
-    // Choose scheduling type (can be changed to try different schedulers)
-    scheduler_type_t sched_type = SCHEDULER_LOTTERY; // or SCHEDULER_ROUND_ROBIN
+    // Choose scheduling type (SCHEDULER_ROUND_ROBIN or SCHEDULER_LOTTERY)
+    scheduler_type_t sched_type = SCHEDULER_ROUND_ROBIN;
 
     // Initialize scheduler
     scheduler_init(sched_type);
@@ -51,10 +54,10 @@ int main()
            sched_type == SCHEDULER_ROUND_ROBIN ? "Round Robin" : "Lottery");
 
     // Create tasks with different ticket amounts
-    scheduler_create_task(func1, 50);
-    scheduler_create_task(func2, 100);
-    scheduler_create_task(func3, 200);
-    scheduler_create_task(func4, 400);
+    scheduler_create_task(func1, 10);
+    scheduler_create_task(func2, 20);
+    scheduler_create_task(func3, 30);
+    scheduler_create_task(func4, 40);
 
     // Print initial ticket allocation
     printf("Initial ticket allocation:\n");
@@ -71,6 +74,7 @@ int main()
     // Start the scheduler
     scheduler_start();
 
+    // Exits after printing results
     printf("Not gonna RUN\n");
     return 0;
 }
